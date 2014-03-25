@@ -1344,10 +1344,12 @@ exports.tests = {
     var window = jsdom.jsdom("<!DOCTYPE html><html><head></head><body></body></html>").createWindow();
 
     jsdom.jQueryify(window, path.resolve(__dirname, "../jquery-fixtures/jquery-1.11.0.js"), function () {
-      var $el = window.$("<div></div>");
+      var $el1 = window.$("<div></div>");
+      var $el2 = window.$("<span></span>");
 
       t.doesNotThrow(function () {
-        $el.show();
+        $el1.show();
+        $el2.show();
       });
 
       t.done();
